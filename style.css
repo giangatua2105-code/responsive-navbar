@@ -1,0 +1,202 @@
+/* ==========================================================
+   1. RESET CƠ BẢN
+   ========================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ==========================================================
+   2. NAVBAR - Desktop
+   ========================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 15px 30px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #f1c40f;
+  letter-spacing: 1px;
+}
+
+/* ==========================================================
+   3. MENU LINKS - Desktop
+   ========================================================== */
+.nav-links {
+  display: flex;
+  gap: 5px;
+}
+
+.nav-links li {
+  margin: 0 5px;
+}
+
+.nav-links a {
+  display: block;
+  color: white;
+  font-size: 16px;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: #3498db;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* ==========================================================
+   4. MENU ICON (☰) - Chỉ hiện trên mobile
+   ========================================================== */
+.menu-icon {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.menu-icon:hover {
+  background-color: #444;
+}
+
+/* ==========================================================
+   5. NỘI DUNG MẪU
+   ========================================================== */
+.content {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.content h1 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.content p {
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* ==========================================================
+   6. RESPONSIVE - MOBILE (≤ 768px)
+   ========================================================== */
+@media (max-width: 768px) {
+  /* Ẩn menu ngang, chuyển sang dạng dọc */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-links li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px 20px;
+    border-radius: 0;
+    border-bottom: 1px solid #444;
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  /* Hiện biểu tượng ☰ */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Khi có class .active → hiện menu */
+  .nav-links.active {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  /* Animation trượt xuống */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  .content {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+}
+
+/* ==========================================================
+   7. RESPONSIVE - Mobile nhỏ (≤ 480px)
+   ========================================================== */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
+
+  .menu-icon {
+    font-size: 24px;
+  }
+
+  .content h1 {
+    font-size: 22px;
+  }
+}
